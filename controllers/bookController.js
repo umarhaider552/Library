@@ -68,16 +68,19 @@ exports.updateBook = async (req, res) => {
 
 // Delete a Book
 exports.deleteBook = async (req, res) => {
-  try {
-    const book = await Book.findById(req.params.id);
-    if (!book) return res.status(404).json({ message: 'Book not found' });
-
-    if (book.createdBy.toString() !== req.user.id)
-      return res.status(403).json({ message: 'User not authorized' });
-
-    await book.remove();
-    res.status(200).json({ message: 'Book removed' });
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+    try {
+      const book = await Book.findById(req.params.id);
+      if (!book) return res.status(404).json({ message: 'Book not found' });
+  
+      // Check if the user is authorized to delete the book
+      if (book.createdBy.toString() !== req.user.id)
+        return res.status(403).json({ message: 'User not authorized' });
+  
+      // Use findByIdAndDelete instead of remove
+      await Book.findByIdAndDelete(req.params.id); // Correct method
+  
+      res.status(200).json({ message: 'Book removed' });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  };
