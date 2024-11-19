@@ -58,11 +58,18 @@ ul {
 
 li {
   background-color: #ffffff;
+  color: #000000; /* Black text */
   margin: 10px 0;
   padding: 10px;
   border-radius: 5px;
-  width: 80%;
+  width: 60%;
   text-align: center;
+  border: 1px solid 4B0082;
+}
+
+ul, li {
+  visibility: visible !important;
+  display: block !important;
 }
 
 /* Navbar styling */
@@ -78,6 +85,31 @@ nav a {
   font-size: 18px;
   text-decoration: none;
   margin: 0 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  margin: 0 15px;
+}
+
+.nav-link.active {
+  color: rgb(240, 248, 84);
+  font-weight: bold; 
+}
+
+.logout-button {
+  padding: 10px;
+  background-color: #f44336; /* Red color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
 }
 
 nav a:hover {
@@ -140,3 +172,39 @@ input[type="password"] {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
+
+.create-book-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full height of the viewport */
+  padding: 20px;
+}
+
+.create-book-container input {
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 80%; /* Adjust the width to suit your design */
+  max-width: 400px; /* Optional: limit the max width */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-book-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4B0082; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 400px; /* Same max width for button */
+}
+
+.create-book-container button:hover {
+  background-color: #5D2D91;
+}
+
